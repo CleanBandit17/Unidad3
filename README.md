@@ -7,7 +7,6 @@ Proyecto base que servirá como caso de estudio. Nos permitirá abordar los conc
 necesarios para comprender el código generado por la IA al momente 
 de materializar las ideas.
 
-
 ## Requisitos
 
 - Node.js 22 recomendado (Vite 8 requiere Node 20.19+ o 22.12+).
