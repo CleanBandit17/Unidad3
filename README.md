@@ -2,6 +2,8 @@
 
 [App desplegada](https://juanferfranco.github.io/forces-instrument-u3/)
 
+[CAMBIO APP](https://cleanbandit17.github.io/Unidad3/)
+
 
 Proyecto base que servirá como caso de estudio. Nos permitirá abordar los conceptos 
 necesarios para comprender el código generado por la IA al momente 
