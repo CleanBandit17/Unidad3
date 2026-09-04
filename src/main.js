@@ -22,7 +22,7 @@ import { createLabPanel } from './ui/labPanel.js';
 2^24: 16777216
 */
 
-const PARTICLE_COUNT = 131072; //2^17. Increase only after measuring performance.
+const PARTICLE_COUNT = 16384; //2^17. Increase only after measuring performance.
 
 async function main() {
   const mount = document.querySelector('#app');
