@@ -9,6 +9,7 @@ function rangeRow(parent, label, object, key, min, max, step, onInput, getValue)
   lab.append(name, value);
   const input = document.createElement('input');
   input.type = 'range';
+  input.setAttribute('aria-label', label);
   input.min = String(min);
   input.max = String(max);
   input.step = String(step);
@@ -95,6 +96,23 @@ export function createLabPanel({ params, onReset, onPreset, onModeChange, onPaus
   force.className = 'group';
   force.innerHTML = '<h2>Fuerzas</h2>';
   panel.append(force);
+
+  const custom = document.createElement('div');
+  custom.className = 'group';
+  custom.innerHTML = '<h2>Fuerzas propias</h2><p>Anillo: empuja hacia fuera dentro del radio; atrae fuera. Flujo: desvía la velocidad en un campo espacial.</p>';
+  panel.append(custom);
+  for (const [key, label] of [['ringEnabled', 'Anillo elástico'], ['flowEnabled', 'Campo de flujo']]) {
+    refreshers.push(checkRow(custom, label, params[key].value > 0, value => params[key].value = value ? 1 : 0, () => params[key].value > 0));
+  }
+  for (const [key, label, min, max, step] of [
+    ['ringStrength', 'Tensión del anillo', 0, 8, 0.05], ['ringRadius', 'Radio objetivo', 0.8, 3.5, 0.01],
+    ['waveHeight', 'Pliegue', 0, 1.3, 0.01], ['confinement', 'Confinamiento Z', 0, 5, 0.05],
+    ['flowStrength', 'Intensidad del flujo', 0, 2, 0.01], ['trails', 'Estelas', 0, 1, 0.01],
+    ['brightness', 'Luz', 0.1, 1, 0.01]
+  ]) {
+    state[key] = params[key].value;
+    refreshers.push(rangeRow(custom, label, state, key, min, max, step, value => params[key].value = value, () => params[key].value));
+  }
 
   refreshers.push(checkRow(force, 'Radial', params.radialEnabled.value > 0, (v) => params.radialEnabled.value = v ? 1 : 0, () => params.radialEnabled.value > 0));
   refreshers.push(rangeRow(force, 'radialStrength', state, 'radialStrength', -8, 8, 0.05, (v) => params.radialStrength.value = v, () => params.radialStrength.value));

@@ -1,0 +1,12 @@
+MATERIA - Unidad 3 - LesAlpx
+
+1. Extrae toda la carpeta Materia.
+2. Instala Node.js 22.12 o superior.
+3. Abre una terminal dentro de Materia y ejecuta: npm ci
+4. Ejecuta: npm run dev
+5. Abre la dirección local indicada en Chrome o Edge con WebGPU.
+
+VISUALES.md contiene referencias, controles y API para el compañero.
+H oculta/muestra controles. La guía completa también está en la interfaz.
+Se incluye dist con la versión compilada. Debe servirse por HTTP; no abrir index.html con doble clic.
+node_modules y el historial Git no se incluyen. npm ci instala las dependencias.
